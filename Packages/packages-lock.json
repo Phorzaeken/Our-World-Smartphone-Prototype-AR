@@ -8,11 +8,20 @@
       "hash": "69be818a46ca876afc5cb370a0ceb00324b4437d"
     },
     "com.unity.collab-proxy": {
+<<<<<<< Updated upstream
       "version": "1.7.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "2.0.0"
+=======
+      "version": "1.15.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.unity.services.core": "1.0.1"
+>>>>>>> Stashed changes
       },
       "url": "https://packages.unity.com"
     },
@@ -63,22 +72,37 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
+<<<<<<< Updated upstream
       "version": "10.5.1",
+=======
+      "version": "10.7.0",
+>>>>>>> Stashed changes
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.ugui": "1.0.0"
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.universal": {
+<<<<<<< Updated upstream
       "version": "10.5.1",
+=======
+      "version": "10.7.0",
+>>>>>>> Stashed changes
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
+<<<<<<< Updated upstream
         "com.unity.render-pipelines.core": "10.5.1",
         "com.unity.shadergraph": "10.5.1"
+=======
+        "com.unity.render-pipelines.core": "10.7.0",
+        "com.unity.shadergraph": "10.7.0"
+>>>>>>> Stashed changes
       },
       "url": "https://packages.unity.com"
     },
@@ -89,12 +113,29 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.services.core": {
+      "version": "1.0.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.unitywebrequest": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.shadergraph": {
+<<<<<<< Updated upstream
       "version": "10.5.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.render-pipelines.core": "10.5.1",
+=======
+      "version": "10.7.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "10.7.0",
+>>>>>>> Stashed changes
         "com.unity.searcher": "4.3.2"
       },
       "url": "https://packages.unity.com"
@@ -150,12 +191,21 @@
       }
     },
     "com.unity.visualeffectgraph": {
+<<<<<<< Updated upstream
       "version": "10.5.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.shadergraph": "10.5.1",
         "com.unity.render-pipelines.core": "10.5.1"
+=======
+      "version": "10.7.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.shadergraph": "10.7.0",
+        "com.unity.render-pipelines.core": "10.7.0"
+>>>>>>> Stashed changes
       },
       "url": "https://packages.unity.com"
     },
