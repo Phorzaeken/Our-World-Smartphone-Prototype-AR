@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 723ff42cd8671fa4aa710062f511f1b4
+<<<<<<< Updated upstream
+guid: 8eca9fde1cc535948af0860c45df68e5
+=======
+guid: 76292455f02f34946a8162bb66a48837
+>>>>>>> Stashed changes
 IHVImageFormatImporter:
   externalObjects: {}
   textureSettings:
