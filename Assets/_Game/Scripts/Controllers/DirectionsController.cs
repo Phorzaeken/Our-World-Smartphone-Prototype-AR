@@ -1,22 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using Mapbox.Unity.Map;
-using OurWorld.Scripts.Behaviours.Directions.NavigationBehaviours;
 using OurWorld.Scripts.DataModels.GeolocationData;
 using OurWorld.Scripts.Extensions;
 using OurWorld.Scripts.Interfaces.MapAPI;
-using OurWorld.Scripts.Interfaces.MapAPI.Directions;
 using UnityEngine;
 
 namespace OurWorld.Scripts.Navigation.Directions
 {
     public class DirectionsController : MonoBehaviour
     {
-        [SerializeField] private float _updateInterval = 2f;
-        [SerializeField] private Transform _avatar;
         private IDirectionsAPIProvider _directionsAPIProvider;
-        private INavigationBehaviour _activeNavigation;
+        private IDirectionsDisplayStrategy _activeNavigation;
 
         private AbstractMap _map;
         public bool IsNavigating => _activeNavigation != null && _activeNavigation.Active;
@@ -34,7 +28,7 @@ namespace OurWorld.Scripts.Navigation.Directions
                 return;
             }
 
-            if (Geolocation.TempPlayerPosition.DistanceTo(targetLocation) < 0.1f)
+            if (Geolocation.TempPlayerPosition.DistanceTo(targetLocation) < 0.1)
             {
                 Debug.Log("Target distance is lower than 100 meters");
                 return;
@@ -48,11 +42,9 @@ namespace OurWorld.Scripts.Navigation.Directions
                 return;
             }
 
-            _activeNavigation = new DefaultNavigationBehaviour(LocationSolver);
+            _activeNavigation = new LineRendererNavigationBehaviour();
 
-            _activeNavigation.StartNavigation(waypoints);
-
-            StartCoroutine(UpdateCoroutine());
+            _activeNavigation.StartNavigation(waypoints, LocationSolver);
         }
         public void Dispose()
         {
@@ -60,28 +52,9 @@ namespace OurWorld.Scripts.Navigation.Directions
             _activeNavigation.DisposeActiveNavigation();
             _activeNavigation = null;
         }
-
-        private IEnumerator UpdateCoroutine()
-        {
-            var wait = new WaitForSeconds(_updateInterval);
-
-            while(_activeNavigation != null && _activeNavigation.Active)
-            {
-                yield return wait;
-                _activeNavigation.Update();
-            }
-        }
-
         private Vector3 LocationSolver(Geolocation location)
         {
-            return new Vector3(0, 0.5f, 0) + _map.GeoToWorldPosition(new Mapbox.Utils.Vector2d(location.Latitude, location.Longitude));
-        }
-
-        private void OnDrawGizmos() {
-            if(_activeNavigation == null) return;
-
-            var defaultNav = _activeNavigation as DefaultNavigationBehaviour;
-            Gizmos.DrawWireCube(defaultNav.StepBounds.center,defaultNav.StepBounds.size);
+            return new Vector3(0,0.5f,0) + _map.GeoToWorldPosition(new Mapbox.Utils.Vector2d(location.Latitude,location.Longitude));
         }
     }
 }

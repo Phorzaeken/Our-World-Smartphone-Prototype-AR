@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace OurWorld.Scripts.Editor
 {
-    [CustomEditor(typeof(NearbyPlacesListElement))]
+    [CustomEditor(typeof(ParkListElement))]
     public class ParkListElementEditor : UnityEditor.Editor
     {
-        private NearbyPlacesListElement TargetScript => base.target as NearbyPlacesListElement;
+        private ParkListElement TargetScript => base.target as ParkListElement;
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();

@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using OurWorld.Scripts.DataModels;
 using OurWorld.Scripts.DataModels.GeolocationData;
 using OurWorld.Scripts.Interfaces.MapAPI;
-using OurWorld.Scripts.Interfaces.MapAPI.Geocoding;
 
 namespace OurWorld.Scripts.Providers.MapAPIProviders
 {
@@ -11,6 +10,9 @@ namespace OurWorld.Scripts.Providers.MapAPIProviders
     {
         public IDirectionsAPIProvider DirectionsAPI => throw new System.NotImplementedException();
 
-        public IForwardGeocodingProvider GeocodingProvider => throw new System.NotImplementedException();
+        public UniTask<List<ParkData>> GetNearbyParksAsync(Geolocation playerLocation, float radius)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
